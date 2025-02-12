@@ -7,7 +7,7 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 ## Requirements
 
 - TouchDesigner 2023.11000 or later
-- Windows 10/11 or macOS
+- macOS (Windows is not supported)
 
 ## File Structure
 
@@ -62,3 +62,4 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 - Ensure UDP communication is allowed in your network settings (firewall, etc.)
 - Process paths must be specified as absolute paths
 - Thoroughly test the system before using it in a production environment
+- This system currently only supports macOS. Windows support is not available at this time
