@@ -1,62 +1,64 @@
 # TouchDesigner Watchdog System
 
-TouchDesignerプロジェクトの監視(ウォッチドッグ)システムです。監視対象のTouchDesignerアプリケーションからのハートビート信号が途絶えた場合、自動的にプロセスを終了させ、再起動を行います。
+English | [日本語](README_ja.md)
 
-## 必要要件
+A watchdog system for TouchDesigner projects that monitors target applications and automatically restarts them if heartbeat signals are lost.
 
-- TouchDesigner 2023.11000以降
-- Windows 10/11 または macOS
+## Requirements
 
-## ファイル構成
+- TouchDesigner 2023.11000 or later
+- Windows 10/11 or macOS
 
-- `watchdog.toe` - メインのウォッチドッグシステム。監視対象アプリケーションからのハートビート信号を監視し、信号が途絶えた場合にプロセスの終了・再起動を行います
-- `watchdog-heartbeat-sender.tox` - 監視対象アプリケーションに組み込むためのハートビート送信コンポーネント
-- `watchdog-target.toe` - ハートビート送信コンポーネントを組み込んだサンプルアプリケーション
+## File Structure
 
-## セットアップ方法
+- `watchdog.toe` - Main watchdog system that monitors heartbeat signals from target applications and handles process termination/restart when signals are lost
+- `watchdog-heartbeat-sender.tox` - Heartbeat sender component to be integrated into target applications
+- `watchdog-target.toe` - Sample application with the heartbeat sender component integrated
 
-### 1. 監視対象アプリケーションの設定
+## Setup
 
-1. 監視対象のTouchDesignerプロジェクトを開きます
-2. `watchdog-heartbeat-sender.tox`をTouchDesignerのプロジェクトウィンドウに直接ドラッグ&ドロップします
-   - コンポーネントが自動的にプロジェクトに追加されます
-3. 追加されたコンポーネントを選択し、以下の設定を行います:
-   - IPアドレス: ウォッチドッグシステムが動作するPCのIPアドレス
-   - ポート番号: 使用するUDPポート番号
-4. プロジェクトを保存します
+### 1. Target Application Setup
 
-### 2. ウォッチドッグの設定
+1. Open your target TouchDesigner project
+2. Drag and drop `watchdog-heartbeat-sender.tox` directly into the TouchDesigner project window
+   - The component will be automatically added to your project
+3. Select the added component and configure the following settings:
+   - IP Address: IP address of the PC running the watchdog system
+   - Port Number: UDP port number to use
+4. Save your project
 
-1. `watchdog.toe`を開きます
-2. Target Applicationセクションで以下の設定を行います:
-   - Absolute Path: 監視対象アプリケーションの実行ファイルパスを設定
-     - デフォルトでは`/path/to/watchdog-target.toe`となっているため、実際の監視対象ファイルのパスに変更してください
-   - ポート番号: ハートビート送信側と同じポート番号を設定
+### 2. Watchdog Setup
 
-## 使用方法
+1. Open `watchdog.toe`
+2. Configure the Target Application section:
+   - Absolute Path: Set the path to your target application
+     - Default value is `/path/to/watchdog-target.toe`, change this to the actual path of your target file
+   - Port Number: Set the same port number as configured in the heartbeat sender
 
-1. 監視対象のTouchDesignerプロジェクトを起動します
-2. `watchdog.toe`を起動します
-3. ウォッチドッグシステムが自動的にハートビート信号の監視を開始します
-4. 監視対象プロジェクトが応答を停止した場合:
-   - プロセスを強制終了します
-   - 自動的に再起動を行います
+## Usage
 
-## 動作の仕組み
+1. Launch your target TouchDesigner project
+2. Launch `watchdog.toe`
+3. The watchdog system will automatically start monitoring heartbeat signals
+4. If the target project stops responding:
+   - The process will be forcefully terminated
+   - It will be automatically restarted
 
-1. 監視対象プロジェクトに組み込まれた`watchdog-heartbeat-sender.tox`が定期的にUDPパケットを送信します
-2. `watchdog.toe`がハートビート信号を監視します
-3. 30秒以上ハートビート信号を受信できない場合、異常と判断します
-4. 異常検知時:
-   - 監視対象プロセスを強制終了します
-   - 自動的に再起動処理を実行します
+## How It Works
 
-## サンプルプログラム
+1. The `watchdog-heartbeat-sender.tox` component integrated into the target project sends UDP packets periodically
+2. `watchdog.toe` monitors these heartbeat signals
+3. If no heartbeat signals are received for 30 seconds, it determines there's an issue
+4. When an issue is detected:
+   - The target process is forcefully terminated
+   - The restart process is automatically executed
 
-`watchdog-target.toe`は、ハートビート送信コンポーネントを実際に組み込んだサンプルアプリケーションです。このサンプルを参考に、独自のプロジェクトへの実装を行うことができます。
+## Sample Program
 
-## 注意事項
+`watchdog-target.toe` is a sample application with the heartbeat sender component already integrated. You can use this as a reference for implementing the system in your own projects.
 
-- ネットワーク設定(ファイアウォール等)でUDP通信が許可されていることを確認してください
-- プロセスパスは絶対パスで指定する必要があります
-- 本番環境で使用する前に、十分なテストを行ってください
+## Important Notes
+
+- Ensure UDP communication is allowed in your network settings (firewall, etc.)
+- Process paths must be specified as absolute paths
+- Thoroughly test the system before using it in a production environment
