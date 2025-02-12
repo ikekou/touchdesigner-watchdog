@@ -4,6 +4,8 @@
 
 TouchDesignerプロジェクトの監視(ウォッチドッグ)システムです。監視対象のTouchDesignerアプリケーションからのハートビート信号が途絶えた場合、自動的にプロセスを終了させ、再起動を行います。
 
+<img width="563" alt="image" src="https://github.com/user-attachments/assets/47a6290d-6911-41e4-bb40-535a8fe0858f" />
+
 ## 必要要件
 
 - TouchDesigner 2023.11000以降
