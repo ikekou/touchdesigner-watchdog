@@ -4,6 +4,8 @@ English | [日本語](README_ja.md)
 
 A watchdog system for TouchDesigner projects that monitors target applications and automatically restarts them if heartbeat signals are lost.
 
+<img width="563" alt="image" src="https://github.com/user-attachments/assets/47a6290d-6911-41e4-bb40-535a8fe0858f" />
+
 ## Requirements
 
 - TouchDesigner 2023.11000 or later
