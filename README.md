@@ -1,4 +1,4 @@
-# TouchDesigner Watchdog System
+# TouchDesigner Watchdog
 
 English | [日本語](README_ja.md)
 
