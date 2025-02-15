@@ -8,7 +8,7 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 
 ## Requirements
 
-- TouchDesigner 2023.11000 or later
+- TouchDesigner 2023.12120 (verified working version, may work with other versions as well)
 - macOS (Windows is not supported)
 
 ## File Structure
