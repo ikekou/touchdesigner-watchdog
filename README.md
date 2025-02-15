@@ -65,3 +65,8 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 - Process paths must be specified as absolute paths
 - Thoroughly test the system before using it in a production environment
 - This system currently only supports macOS. Windows support is not available at this time
+- Use this system at your own risk. The author(s) are not responsible for any damages or losses caused by the use of this system
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
