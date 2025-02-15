@@ -1,10 +1,32 @@
 # TouchDesigner Watchdog
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TD Version](https://img.shields.io/badge/TouchDesigner-2023.12120-blue.svg)](https://derivative.ca/)
+
 English | [日本語](README_ja.md)
 
 A watchdog system for TouchDesigner projects that monitors target applications and automatically restarts them if heartbeat signals are lost.
 
 <img width="563" alt="image" src="https://github.com/user-attachments/assets/47a6290d-6911-41e4-bb40-535a8fe0858f" />
+
+## Table of Contents
+- [Features](#features)
+- [Requirements](#requirements)
+- [File Structure](#file-structure)
+- [Setup](#setup)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Sample Program](#sample-program)
+- [Troubleshooting](#troubleshooting)
+- [Important Notes](#important-notes)
+- [Version History](#version-history)
+- [License](#license)
+
+## Features
+- 💫 Automatic monitoring of TouchDesigner projects
+- 🔄 Automatic restart on crash
+- 📡 Lightweight UDP-based heartbeat communication
+- 🔌 Easy integration (drag & drop)
 
 ## Requirements
 
@@ -59,6 +81,17 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 
 `watchdog-target.toe` is a sample application with the heartbeat sender component already integrated. You can use this as a reference for implementing the system in your own projects.
 
+## Troubleshooting
+
+### Heartbeat Signal Not Detected
+- Check firewall settings
+- Verify IP address and port number configurations
+- Check network connectivity
+
+### Process Restart Fails
+- Verify absolute path settings
+- Check file permissions
+
 ## Important Notes
 
 - Ensure UDP communication is allowed in your network settings (firewall, etc.)
@@ -66,6 +99,13 @@ A watchdog system for TouchDesigner projects that monitors target applications a
 - Thoroughly test the system before using it in a production environment
 - This system currently only supports macOS. Windows support is not available at this time
 - Use this system at your own risk. The author(s) are not responsible for any damages or losses caused by the use of this system
+
+## Version History
+
+- v1.0.0
+  - Initial release
+  - Basic watchdog functionality
+  - macOS support
 
 ## License
 
